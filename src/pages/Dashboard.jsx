@@ -52,7 +52,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg border border-slate-200 flex flex-col p-6 overflow-hidden">
+          <div className="bg-white rounded-lg border border-slate-200 flex flex-col p-6 overflow-hidden ">
             <h3 className="font-bold text-slate-700 mb-4 shrink-0">
               Add Habit
             </h3>

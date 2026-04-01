@@ -1,17 +1,19 @@
+import { useContext } from "react";
 import { useHabit } from "../context/HabitContext";
 import HabitItem from "./HabitItem";
 
 const HabitList = () => {
   const { habits, showAll, setShowAll } = useHabit();
+  // useContext(HabitCo)
 
-  const today = new Date().toISOString().split("T")[1];
+  const today = new Date().toISOString().split("T")[0]; //fix
 
   const completedToday = habits.filter((h) =>
     h.completedDates.includes(today),
   ).length;
 
   const progressPercent =
-    habits.length > 0 ? Math.round((completedToday * habits.length) * 100) : 0;
+    habits.length > 0 ? Math.round((completedToday / habits.length) * 100) : 0; //fix
 
   const topCategory =
     habits.reduce((acc, h) => {
@@ -19,15 +21,20 @@ const HabitList = () => {
       return acc;
     }, {});
 
-  const mainFocus = Object.keys(topCategory).reduce((a, b) =>
-    topCategory[a] < topCategory[b] ? a : b,
-  );
+ const keys = Object.keys(topCategory);
+
+const mainFocus =
+  keys.length > 0
+    ? keys.reduce((a, b) =>
+        topCategory[a] < topCategory[b] ? a : b
+      )
+    : null;
 
   if (habits.length === 0) {
     return null;
   }
 
-  const visibleHabits = showAll ? habits : habits.slice(3);
+  const visibleHabits = showAll ? habits : habits.slice(0,3);
 
   return (
     <div className="max-w-md mx-auto mt-6 px-4 pb-20">

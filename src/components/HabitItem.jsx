@@ -12,7 +12,7 @@ const HabitItem = ({ habit }) => {
 
   const handleSave = () => {
     updateHabit(habit.id, editData);
-    setEditing(true);
+    setEditing(false);
   };
 
   return (
@@ -20,7 +20,9 @@ const HabitItem = ({ habit }) => {
       {editing ? (
         <input
           value={editData.name}
-          onChange={(e) => (editData.name = e.target.value)}
+          onChange={(e) =>
+            setEditData({ ...editData, name: e.target.value })
+          }
         />
       ) : (
         <div>
