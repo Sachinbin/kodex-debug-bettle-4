@@ -1,5 +1,9 @@
 # 🐞 Debug Battle — Habit Tracker (React + Context API)
 
+## Buggy Repo Link: https://github.com/DaneshVerma/kodex-debug-battel-contextAPI
+
+## Final output : kodex-debug-react.vercel.app
+
 ## 🎯 Challenge Overview
 
 Welcome to the **Debug Battle**! You've been handed a **Habit Tracker** application built with **React**, **Vite**, and the **Context API**. The app is designed to let users create daily habits, mark them as complete, track streaks, edit, and delete habits.
